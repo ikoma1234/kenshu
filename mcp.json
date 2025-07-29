@@ -1,16 +1,5 @@
 {
 	"servers": {
-		"mcp-atlassian": {
-			"type": "stdio",
-			"command": "uvx",
-			"args": [
-				"mcp-atlassian",
-				"--no-confluence-ssl-verify",
-				"--confluence-url=https://confluence.askul.co.jp",
-				"--confluence-username=abi01604",
-				"--confluence-token=10010010-Ik"
-			]
-		},
 		"github": {
 			"url": "https://api.githubcopilot.com/mcp/",
 			"type": "http"
