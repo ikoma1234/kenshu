@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Safe Script Runner",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "if [[ \"$1\" =~ rm.*-rf ]]; then echo 'エラー: 危険なコマンドは実行できません' >&2; exit 1; fi; \"$@\"",
+                "--"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Run Calculator Test",
+            "type": "shell",
+            "command": "./calc.sh",
+            "args": ["+", "5", "3"],
+            "group": "test",
+            "dependsOn": "Safe Script Runner"
+        }
+    ]
+}
